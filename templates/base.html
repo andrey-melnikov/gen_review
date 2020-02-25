@@ -1,0 +1,20 @@
+<html>
+	<head>
+		{% if title %}
+		<title>{{title}}</title>
+		{% else %}
+		<title>App review generator</title>
+		{% endif %}
+	</head>
+	<body>
+		<div>
+			Gen-Review:
+			 <a href="/index">Home</a>
+			<a href="/api">API</a>
+			<a href="/example">Example</a>
+</div>
+		
+		<hr>
+		{% block content %}{% endblock %}
+	</body>
+</html>
