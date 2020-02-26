@@ -120,16 +120,19 @@ def main(id_target, lang, reviews_amount, ratings, mode, output_name, auto, simi
 	#lauch a driver
 	driver = launch_driver()
 
-	EXTRA_REVIEWS=10
+	EXTRA_TARGET_REVIEWS=10
+
+	total_reviews = 0
 	#get reviews from all similar app's pages
 	for i in range(len(similar_ids)):
 		#url of a similar app
 		url = 'https://play.google.com/store/apps/details?id='+similar_ids[i]+'&gl=us&hl='+lang
 		#parse reviews
-		load_reviews(driver,url, reviews_amount, ratings, mode, output_file)	
+		total_reviews+= load_reviews(driver, url, reviews_amount, ratings, mode, output_file)	
 
 
 	print('Reviews have been parsed successfully')
+	print('Total number of reviews: '+str(total_reviews))
 	#close the browser
 	driver.quit()
 	#close the output file
