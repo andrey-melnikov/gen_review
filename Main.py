@@ -55,7 +55,7 @@ def manually_add_ids(ids):
 
 
 def launch_driver():
-	isHomeComputer=True
+	isHomeComputer=False
 
 	if isHomeComputer:
 		geckodriver_path = '/home/andrey/PYTHON_PROJECTS/Reviews_Parser/gen_review/geckodriver'
@@ -63,7 +63,7 @@ def launch_driver():
 		geckodriver_path='/usr/local/bin/geckodriver'
 	#launch a browser
 	driver_options = webdriver.FirefoxOptions()
-	#driver_options.add_argument('--headless')
+	driver_options.add_argument('--headless')
 
 	#proxy_file = [line.rstrip('\n') for line in open('proxy_file')]
 	#proxy_server_address = ""
