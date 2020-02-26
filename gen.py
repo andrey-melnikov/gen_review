@@ -61,12 +61,13 @@ def load_reviews(driver, url, reviews_amount, ratings, mode,output_file):
 	scrolls_happened=0
 	folders_analized=0
 	filtered_folders_count=0
+	time.sleep(2)
 	while running:
 		# Scroll down to bottom
 		driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
 		# Wait to load page
-		time.sleep(0.5)
+		time.sleep(1)
 
 		# Calculate new scroll height and compare with last scroll height
 		new_height = driver.execute_script("return document.body.scrollHeight")
@@ -132,7 +133,7 @@ def output(driver,output_file,ratings,folders_analized,filtered_folders_count):
 				digit = int(rating[q])
 				break
 
-		if(ratings==1 & int(digit)>=4 or ratings==0 & int(digit)==3 or ratings==-1 & int(digit)<=2):
+		if(ratings==1 and int(digit)>=4 or ratings==0 and int(digit)==3 or ratings==-1 and int(digit)<=2):
 			filtered_folders_count+=1
 
 

@@ -55,7 +55,7 @@ def manually_add_ids(ids):
 
 
 def launch_driver():
-	isHomeComputer=False
+	isHomeComputer=True
 
 	if isHomeComputer:
 		geckodriver_path = '/home/andrey/PYTHON_PROJECTS/Reviews_Parser/gen_review/geckodriver'
@@ -63,7 +63,7 @@ def launch_driver():
 		geckodriver_path='/usr/local/bin/geckodriver'
 	#launch a browser
 	driver_options = webdriver.FirefoxOptions()
-	driver_options.add_argument('--headless')
+	#driver_options.add_argument('--headless')
 
 	#proxy_file = [line.rstrip('\n') for line in open('proxy_file')]
 	#proxy_server_address = ""
@@ -128,6 +128,10 @@ def main(id_target, lang, reviews_amount, ratings, mode, output_name, auto, simi
 		#url of a similar app
 		url = 'https://play.google.com/store/apps/details?id='+similar_ids[i]+'&gl=us&hl='+lang
 		#parse reviews
+		if(mode=="Long"):
+			mode = 2
+		else:
+			mode = 0
 		total_reviews+= load_reviews(driver, url, reviews_amount, ratings, mode, output_file)	
 
 
@@ -144,9 +148,9 @@ def main(id_target, lang, reviews_amount, ratings, mode, output_name, auto, simi
 if __name__ =="__main__":
 	id_target = "com.ansangha.drjb"
 	lang = "en-US"
-	reviews_amount = 20
-	ratings = 1
-	mode = 0
+	reviews_amount = 200
+	ratings = 0
+	mode = "Long"
 	output_name = str(datetime.datetime.now())
 	
 	if similar_apps_exist(id_target):
