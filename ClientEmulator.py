@@ -2,12 +2,12 @@
 import requests
 
 def get_id():
-	res = requests.get('http://gen-review.net/api/v1.0/id')
+	res = requests.get('http://80.249.144.13:5000/api/v1.0/id')
 	if res.ok:
 		return (res.json()['id'])
 
 def post_id(dict):
-	res = requests.post('http://gen-review.net/api/v1.0/gen', json=dict)
+	res = requests.post('http://80.249.144.13:5000/api/v1.0/gen', json=dict)
 	if res.ok:
 		return (res.json())	
 

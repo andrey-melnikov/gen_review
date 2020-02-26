@@ -64,4 +64,4 @@ def progress():
 #	return jsonify({'task':task[0]})
 
 if __name__ == "__main__":
-	application.run()
+	application.run(host="80.249.144.13")
