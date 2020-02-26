@@ -96,7 +96,7 @@ def launch_driver():
 
 	return driver
 
-def main(id_target, lang, reviews_amount, ratings, mode, output_name, similar_ids):
+def main(id_target, lang, reviews_amount, ratings, mode_t, output_name, similar_ids):
 	#check the format of the id_target
 	check_id(id_target)
 	#create a url of the target app
@@ -128,7 +128,7 @@ def main(id_target, lang, reviews_amount, ratings, mode, output_name, similar_id
 		#url of a similar app
 		url = 'https://play.google.com/store/apps/details?id='+similar_ids[i]+'&gl=us&hl='+lang
 		#parse reviews
-		if(mode=="Long"):
+		if(mode_t=="Long"):
 			mode = 2
 		else:
 			mode = 0

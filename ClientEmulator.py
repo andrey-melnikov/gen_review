@@ -16,6 +16,6 @@ if __name__ == "__main__":
 			'id_target': 'com.king.candycrushsaga',
 			'lang':'en_US',
 			'reviews_amount': 20,
-			'length': "Short",
+			'length': "Long",
 			'ratings':'1'}
 	print(post_id(dict))
