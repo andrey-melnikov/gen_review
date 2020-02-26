@@ -27,7 +27,7 @@ def check_id(id_target):
 	if 'https://play.google.com/store/apps/details?id=' in id_target:
 		sys.exit("Do not use the whole URL, use id (ex: com.Company.Appname) instead")
 
-bool similar_apps_exist(id_):
+def similar_apps_exist(id_):
 	check_id(id_)
 	url = 'https://play.google.com/store/apps/details?id='+id_
 	soup = BeautifulSoup(requests.get(url).text,'lxml')
@@ -55,7 +55,7 @@ def manually_add_ids(ids):
 
 
 def launch_driver():
-	isHomeComputer=True
+	isHomeComputer=False
 
 	if isHomeComputer:
 		geckodriver_path = '/home/andrey/PYTHON_PROJECTS/Reviews_Parser/gen_review/geckodriver'
@@ -146,7 +146,7 @@ if __name__ =="__main__":
 	mode = 0
 	output_name = str(datetime.datetime.now())
 	
-	if similar_apps_exist():
+	if similar_apps_exist(id_target):
 		auto=True
 		similar_ids=[]
 	else:

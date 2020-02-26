@@ -1,2 +1,4 @@
 /[Oo]utput/
 /__pycache__/
+geckodriver.log
+*.pyc
