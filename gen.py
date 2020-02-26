@@ -9,8 +9,6 @@ import random
 from io import open
 import os
 
-EXTRA_SCROLLS_PER_PAGE = 2
-
 def expand_reviews(driver):
 	try:
 		#button to "Read All Reviews"
