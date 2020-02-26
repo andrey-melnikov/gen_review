@@ -31,7 +31,11 @@ def gen_auto():
 	reviews_amount = request.json['reviews_amount']
 	mode=request.json['length']
 	ratings=request.json['ratings']
-	main(id_target,lang,reviews_amount,ratings,mode,session['time'])
+	try:
+		similar_ids = request.json['similar_ids']
+	except:
+		similar_ids=[]
+	main(id_target,lang,reviews_amount,ratings,mode,session['time'],similar_ids)
 	#return jsonify({'return':'Generating reviews for '+id_target}),201
 
 @application.route("/api/v1.0/get_reviews", methods=['GET'])

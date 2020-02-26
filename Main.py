@@ -96,7 +96,7 @@ def launch_driver():
 
 	return driver
 
-def main(id_target, lang, reviews_amount, ratings, mode, output_name, auto, similar_ids):
+def main(id_target, lang, reviews_amount, ratings, mode, output_name, similar_ids):
 	#check the format of the id_target
 	check_id(id_target)
 	#create a url of the target app
@@ -110,7 +110,7 @@ def main(id_target, lang, reviews_amount, ratings, mode, output_name, auto, simi
 	output_path = "output/reviews/"+output_name+".txt"
 	output_file = open(output_path, 'w+',encoding='utf-8')
 
-	if(auto):
+	if len(similar_ids)==0:
 		#get similar app's ids
 		similar_ids = get_source_similar_apps_ids(soup)
 	else:
@@ -161,4 +161,4 @@ if __name__ =="__main__":
 		auto=False
 		similar_ids=[]
 
-	main(id_target,lang, reviews_amount, ratings, mode, output_name, auto, similar_ids)
+	main(id_target,lang, reviews_amount, ratings, mode, output_name, similar_ids)
