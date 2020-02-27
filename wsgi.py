@@ -1,11 +1,10 @@
 import json
-from flask import Flask, jsonify, abort, request, render_template, session
+from flask import Flask, jsonify, abort, request, render_template
 from celery import Celery
 import datetime
 import Main
 
 application = Flask(__name__)
-application.secret_key="hello"
 application.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
 application.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 
@@ -37,7 +36,7 @@ def gen():
 	with open('users.txt','r') as json_file:
 		if (id_user in json.load(json_file)) == False:
 			return  abort(404)
-	session['file_id'] = str(id_user+" "+str(datetime.datetime.now()))
+	file_id = str(id_user+" "+str(datetime.datetime.now()))
 	id_target = request.json['id_target']
 	lang = request.json['lang']
 	reviews_amount = (int)(request.json['reviews_amount'])
@@ -48,12 +47,11 @@ def gen():
 	except:
 		similar_ids=[]
 
-	generating.delay(id_target,lang,reviews_amount,ratings,mode,session['file_id'],similar_ids)
-	return jsonify({'file_id':session['file_id']})
-	#return jsonify({'return':'Generating reviews for '+id_target}),201
+	task = generating.apply_async(id_target,lang,reviews_amount,ratings,mode,file_id,similar_ids)
+	return jsonify({}), 202, {'Location': url_for('taskstatus',task_id=task.id), 'file_id':file_id}
 
-@celery.task
-def generating(id_target,lang,reviews_amount,ratings,mode,name, similar_ids):
+@celery.task(bind=True)
+def generating(self,id_target,lang,reviews_amount,ratings,mode,name, similar_ids):
 	Main.main(id_target,lang,reviews_amount,ratings,mode,name,similar_ids)
 
 
@@ -62,23 +60,52 @@ def generating(id_target,lang,reviews_amount,ratings,mode,name, similar_ids):
 
 @application.route("/api/v1.0/get_reviews", methods=['GET'])
 def get_reviews():
-	if 'file_id' in session:
-		ratings = (int)(request.json['ratings'])
+	file_id = request.json['file_id']
+	ratings = (int)(request.json['ratings'])
+	try:
 		output_path = "output/reviews/"+session['file_id']+".txt"
 		output_file = open(output_path, 'r',encoding='utf-8')
-		r = {}
-		i=0
-		for line in output_file:
-			rating = int(line[0])
-			if(ratings==1 and rating>=4 or ratings==0 and rating==3 or ratings==-1 and rating<=2):
-				r.update({str(i):line[2:]})
-				i+=1
-		return r
-	else:
-		return 'no session'
+	except:
+		return "File does not exist"
+	r = {}
+	i=0
+	for line in output_file:
+		rating = int(line[0])
+		if(ratings==1 and rating>=4 or ratings==0 and rating==3 or ratings==-1 and rating<=2):
+			r.update({str(i):line[2:]})
+			i+=1
+	return r
 
 
-
+@app.route("/api/v1.0/progress/<task_id>")
+def taskstatus(task_id):
+    task = generating.AsyncResult(task_id)
+    if task.state == 'PENDING':
+        # job did not start yet
+        response = {
+            'state': task.state,
+            'current': 0,
+            'total': 1,
+            'status': 'Pending...'
+        }
+    elif task.state != 'FAILURE':
+        response = {
+            'state': task.state,
+            'current': task.info.get('current', 0),
+            'total': task.info.get('total', 1),
+            'status': task.info.get('status', '')
+        }
+        if 'result' in task.info:
+            response['result'] = task.info['result']
+    else:
+        # something went wrong in the background job
+        response = {
+            'state': task.state,
+            'current': 1,
+            'total': 1,
+            'status': str(task.info),  # this is the exception raised
+        }
+    return jsonify(response)
 
 
 @application.route("/api/v1.0/progress",methods=['GET'])
