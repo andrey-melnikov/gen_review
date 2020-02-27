@@ -9,7 +9,7 @@ application = Flask(__name__)
 application.secret_key="hello"
 application.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
 application.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
-application.conf.update(BROKER_URL=os.environ['REDIS_URL'],CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
+application.config.update(BROKER_URL=os.environ['REDIS_URL'],CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 
 celery = Celery(application.name, broker=application.config['CELERY_BROKER_URL'])
 celery.conf.update(application.config)
