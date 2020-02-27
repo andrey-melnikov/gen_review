@@ -33,11 +33,10 @@ if __name__ == "__main__":
 			'lang':'en_US',
 			'reviews_amount': 200,
 			'length': "Short",
-			'file_id':'user2 2020-02-27 22:54:43.365862',
+			'file_id':'user2 2020-02-27 22:54:43.365863',
 			'ratings':1}
-	print(similar({'target_id': 'com.AndreyMelnikov.DroneRacingSimulator'}))
 	#print(request_file_id({'user_id': 'user2'}))
-	#print(post_id(dict))
-	#print(get_reviews({'file_id':'user2 2020-02-27 22:54:43.365862', 'ratings':"1"}))
+	print(post_id(dict))
+	#print(get_reviews({'file_id':'user2 2020-02-27 22:54:43.365863', 'ratings':"1"}))
 	#print(progress("f635e99d-7737-4498-b9ec-501316093de3"))
 	#print(similar({'target_id':'com.AndreyMelnikov.DroneRacingSimulator'}))
