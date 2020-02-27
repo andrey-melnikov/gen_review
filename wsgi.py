@@ -1,7 +1,7 @@
 import json
 from flask import Flask, jsonify, abort, request, render_template
 import datetime
-from Main import main
+from Main
 
 application = Flask(__name__)
 
@@ -17,6 +17,10 @@ def api_info():
 @application.route("/example")
 def example():
 	return render_template('example.html')
+
+@application.route("/api/v1.0/similar_apps_exist/<target_id>", methods=['GET'])
+def similar_apps_exist(target_id):
+	return Main.similar_apps_exist(target_id),200
 
 
 @application.route("/api/v1.0/request_file_id", methods=['GET'])
@@ -42,7 +46,7 @@ def gen():
 	except:
 		similar_ids=[]
 
-	main(target_id,lang,reviews_amount,ratings,mode,file_id,similar_ids)
+	Main.main(target_id,lang,reviews_amount,ratings,mode,file_id,similar_ids)
 	return ("Copleted generting reviews for "+target_id), 202
 
 
@@ -68,13 +72,6 @@ def get_reviews():
 			i+=1
 	return r
 
-
-
-@application.route("/api/v1.0/progress",methods=['GET'])
-def progress():
-	#to-do return the progress
-	#if there is no generation then return the message
-	return abort(404)
 
 #@application.route("/api/v1.0/id/<int:id_id>",methods=['GET'])
 #def get_id(id_id):
