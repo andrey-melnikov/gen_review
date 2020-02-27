@@ -20,7 +20,7 @@ def example():
 	return render_template('example.html')
 
 @application.route("/api/v1.0/gen", methods=['POST'])
-def gen_auto():
+def generate():
 	id_user = request.json['id_user']
 	with open('users.txt','r') as json_file:
 		if (id_user in json.load(json_file)) == False:
@@ -28,9 +28,9 @@ def gen_auto():
 	session['time'] = str(datetime.datetime.now())
 	id_target = request.json['id_target']
 	lang = request.json['lang']
-	reviews_amount = request.json['reviews_amount']
+	reviews_amount = (int)(request.json['reviews_amount'])
 	mode=request.json['length']
-	ratings=request.json['ratings']
+	ratings=(int)(request.json['ratings'])
 	try:
 		similar_ids = request.json['similar_ids']
 	except:

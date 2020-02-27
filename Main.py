@@ -149,8 +149,8 @@ if __name__ =="__main__":
 	id_target = "com.ansangha.drjb"
 	lang = "en-US"
 	reviews_amount = 200
-	ratings = 0
-	mode = "Long"
+	ratings = 1
+	mode = "Short"
 	output_name = str(datetime.datetime.now())
 	
 	if similar_apps_exist(id_target):

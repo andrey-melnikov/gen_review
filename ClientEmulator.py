@@ -13,9 +13,9 @@ def post_id(dict):
 
 if __name__ == "__main__":
 	dict = {'id_user':'user2',
-			'id_target': 'com.king.candycrushsaga',
+			'id_target': 'com.ansangha.drjb',
 			'lang':'en_US',
-			'reviews_amount': 20,
-			'length': "Long",
-			'ratings':'1'}
+			'reviews_amount': 200,
+			'length': "Short",
+			'ratings':1}
 	print(post_id(dict))
