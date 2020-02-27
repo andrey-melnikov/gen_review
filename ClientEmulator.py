@@ -25,7 +25,7 @@ def request_file_id(dict):
 def similar(id_):
 	res = requests.get('http://80.249.144.13:5000/api/v1.0/similar_apps_exist',json=dict)
 	if res.ok:
-		return (res.json())	
+		return (res)	
 
 if __name__ == "__main__":
 	dict = {'user_id':'user2',
