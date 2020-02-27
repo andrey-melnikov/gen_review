@@ -97,7 +97,7 @@ def launch_driver():
 
 	return driver
 
-@celery.task(bind=True)
+
 def main(id_target, lang, reviews_amount, ratings, mode_t, output_name, similar_ids):
 	#check the format of the id_target
 	check_id(id_target)
