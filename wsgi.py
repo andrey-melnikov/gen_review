@@ -1,7 +1,7 @@
 import json
 from flask import Flask, jsonify, abort, request, render_template
 import datetime
-import Main
+from Main import main
 
 application = Flask(__name__)
 
