@@ -55,7 +55,7 @@ def get_reviews():
 	file_id = request.json['file_id']
 	ratings = (int)(request.json['ratings'])
 	try:
-		output_path = "output/reviews/"+session['file_id']+".txt"
+		output_path = "output/reviews/"+file_id+".txt"
 		output_file = open(output_path, 'r',encoding='utf-8')
 	except:
 		return abort(404)
