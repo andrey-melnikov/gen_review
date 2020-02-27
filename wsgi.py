@@ -19,7 +19,7 @@ def example():
 	return render_template('example.html')
 
 @application.route("/api/v1.0/similar_apps_exist", methods=['GET'])
-def similar_apps_exist(target_id):
+def similar_apps_exist():
 	return Main.similar_apps_exist(request.json['target_id']),200
 
 

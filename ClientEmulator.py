@@ -23,7 +23,7 @@ def request_file_id(dict):
 
 
 def similar(id_):
-	res = requests.get('http://gen-review.net/api/v1.0/request_file_id/'+id_)
+	res = requests.get('http://80.249.144.13:5000/api/v1.0/similar_apps_exist',json=dict)
 	if res.ok:
 		return (res.json())	
 
@@ -39,4 +39,4 @@ if __name__ == "__main__":
 	#print(post_id(dict))
 	#print(get_reviews({'file_id':'user2 2020-02-27 22:09:22.518085', 'ratings':"1"}))
 	#print(progress("f635e99d-7737-4498-b9ec-501316093de3"))
-	print(similar('com.AndreyMelnikov.DroneRacingSimulator'))
+	print(similar({'target_id':'com.AndreyMelnikov.DroneRacingSimulator'}))
