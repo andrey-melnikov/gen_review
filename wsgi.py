@@ -35,32 +35,28 @@ def generate():
 		similar_ids = request.json['similar_ids']
 	except:
 		similar_ids=[]
+
+	return jsonify({'file_id':str(id_user+session['time'])})
 	main(id_target,lang,reviews_amount,ratings,mode,session['time'],similar_ids)
 	#return jsonify({'return':'Generating reviews for '+id_target}),201
-	output_path = "output/reviews/"+session['time']+".txt"
-	output_file = open(output_path, 'r',encoding='utf-8')
-	r = {}
-	i=0
-	for line in output_file:
-		rating = int(line[0])
-		if(ratings==1 and rating>=4 or ratings==0 and rating==3 or ratings==-1 and rating<=2):
-			r.update({str(i):line[2:]})
-			i+=1
-	return r
+
 
 @application.route("/api/v1.0/get_reviews", methods=['GET'])
 def get_reviews():
 	if 'time' in session:
 		ratings = (int)(request.json['ratings'])
 		output_path = "output/reviews/"+session['time']+".txt"
-		return output_path
 		output_file = open(output_path, 'r',encoding='utf-8')
-		r = []
+		r = {}
+		i=0
 		for line in output_file:
 			rating = int(line[0])
-			if(ratings==1 & rating>=4 | ratings==0 & rating==3 | ratings==-1 & rating<=2):
-				r.append(line[2:])
+			if(ratings==1 and rating>=4 or ratings==0 and rating==3 or ratings==-1 and rating<=2):
+				r.update({str(i):line[2:]})
+				i+=1
 		return r
+	else:
+		return 'no session'
 
 @application.route("/api/v1.0/progress",methods=['GET'])
 def progress():
