@@ -77,7 +77,7 @@ def get_reviews():
 	return r
 
 
-@app.route("/api/v1.0/progress/<task_id>")
+@application.route("/api/v1.0/progress/<task_id>")
 def taskstatus(task_id):
     task = generating.AsyncResult(task_id)
     if task.state == 'PENDING':
