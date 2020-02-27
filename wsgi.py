@@ -37,7 +37,7 @@ def gen():
 	with open('users.txt','r') as json_file:
 		if (id_user in json.load(json_file)) == False:
 			return  abort(404)
-	session['file_id'] = str(id_user+" "+datetime.datetime.now())
+	session['file_id'] = str(id_user+" "+str(datetime.datetime.now()))
 	id_target = request.json['id_target']
 	lang = request.json['lang']
 	reviews_amount = (int)(request.json['reviews_amount'])
@@ -49,7 +49,7 @@ def gen():
 		similar_ids=[]
 
 	generating.delay(id_target,lang,reviews_amount,ratings,mode,session['file_id'],similar_ids)
-	return jsonify({'file_id':str(id_user+session['time'])})
+	return jsonify({'file_id':session['file_id']})
 	#return jsonify({'return':'Generating reviews for '+id_target}),201
 
 @celery.task
