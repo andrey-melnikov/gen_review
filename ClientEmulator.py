@@ -18,5 +18,5 @@ if __name__ == "__main__":
 			'reviews_amount': 200,
 			'length': "Short",
 			'ratings':1}
-	#print(post_id(dict))
-	print(get_reviews({'file_id':'user2 2020-02-27 19:39:55.748367', 'ratings':1}))
+	print(post_id(dict))
+	#print(get_reviews({'file_id':'user2 2020-02-27 19:39:55.748367', 'ratings':1}))
