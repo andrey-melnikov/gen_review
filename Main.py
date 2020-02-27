@@ -28,15 +28,15 @@ def check_id(target_id):
 	if 'https://play.google.com/store/apps/details?id=' in target_id:
 		sys.exit("Do not use the whole URL, use id (ex: com.Company.Appname) instead")
 
-def similar_apps_exist(id_):
+def similar_apps_count(id_):
 	check_id(id_)
 	url = 'https://play.google.com/store/apps/details?id='+id_
 	soup = BeautifulSoup(requests.get(url).text,'lxml')
 	try:
 		similar_folders = (soup.find('div', jscontroller="i2u2Pb")).findAll('div',class_="wXUyZd")
 	except:
-		return False
-	return True
+		similar_folders=[]
+	return len(similar_folders)
 
 def get_source_similar_apps_ids(soup):
 	similar_folders = (soup.find('div', jscontroller="i2u2Pb")).findAll('div',class_="wXUyZd")

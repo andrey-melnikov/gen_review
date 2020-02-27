@@ -20,7 +20,7 @@ def example():
 
 @application.route("/api/v1.0/similar_apps_exist", methods=['GET'])
 def similar_apps_exist():
-	return jsonify({'similar_apps_exist':str(Main.similar_apps_exist(request.json['target_id']))}),200
+	return jsonify({'similar_apps_exist':Main.similar_apps_exist(request.json['target_id'])}),200
 
 
 @application.route("/api/v1.0/request_file_id", methods=['GET'])
