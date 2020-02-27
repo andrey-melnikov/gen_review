@@ -18,9 +18,9 @@ def api_info():
 def example():
 	return render_template('example.html')
 
-@application.route("/api/v1.0/similar_apps_exist", methods=['GET'])
-def similar_apps_exist():
-	return jsonify({'similar_apps_exist':Main.similar_apps_exist(request.json['target_id'])}),200
+@application.route("/api/v1.0/similar_apps_count", methods=['GET'])
+def similar_apps_count():
+	return jsonify({'similar_apps_count':str(Main.similar_apps_count(request.json['target_id']))}),200
 
 
 @application.route("/api/v1.0/request_file_id", methods=['GET'])

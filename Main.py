@@ -148,6 +148,8 @@ def main(target_id, lang, reviews_amount, ratings, mode_t, output_name, similar_
 
 
 if __name__ =="__main__":
+	
+
 	target_id = "com.ansangha.drjb"
 	lang = "en-US"
 	reviews_amount = 200
@@ -155,7 +157,7 @@ if __name__ =="__main__":
 	mode = "Short"
 	output_name = str(datetime.datetime.now())
 	
-	if similar_apps_exist(target_id):
+	if similar_apps_count(target_id):
 		auto=True
 		similar_ids=[]
 	else:
@@ -163,4 +165,4 @@ if __name__ =="__main__":
 		auto=False
 		similar_ids=[]
 
-	main(target_id,lang, reviews_amount, ratings, mode, output_name, similar_ids)
+	#main(target_id,lang, reviews_amount, ratings, mode, output_name, similar_ids)

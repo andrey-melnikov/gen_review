@@ -22,8 +22,8 @@ def request_file_id(dict):
 		return (res.json())	
 
 
-def similar(id_):
-	res = requests.get('http://80.249.144.13:5000/api/v1.0/similar_apps_exist',json=dict)
+def similar(dict):
+	res = requests.get('http://80.249.144.13:5000/api/v1.0/similar_apps_count',json=dict)
 	if res.ok:
 		return (res.json())	
 
