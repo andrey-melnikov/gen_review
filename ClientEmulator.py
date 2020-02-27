@@ -23,6 +23,6 @@ if __name__ == "__main__":
 			'reviews_amount': 20,
 			'length': "Short",
 			'ratings':1}
-	print(post_id(dict))
-	#print(get_reviews({'file_id':'user2 2020-02-27 19:39:55.748367', 'ratings':1}))
-	#print(progress("fd"))
+	#print(post_id(dict))
+	#print(get_reviews({'file_id':'user2 2020-02-27 20:22:56.601308', 'ratings':"1"}))
+	#print(progress("f635e99d-7737-4498-b9ec-501316093de3"))

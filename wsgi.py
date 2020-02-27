@@ -66,7 +66,7 @@ def get_reviews():
 		output_path = "output/reviews/"+session['file_id']+".txt"
 		output_file = open(output_path, 'r',encoding='utf-8')
 	except:
-		return "File does not exist"
+		return abort(404)
 	r = {}
 	i=0
 	for line in output_file:
