@@ -1,18 +1,9 @@
 import json
 from flask import Flask, jsonify, abort, request, render_template
-from celery import Celery
 import datetime
 import Main
 
 application = Flask(__name__)
-application.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
-application.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
-
-celery = Celery(application.name, broker=application.config['CELERY_BROKER_URL'])
-celery.conf.update(application.config)
-
-
-
 
 @application.route("/")
 @application.route("/index")
@@ -28,7 +19,11 @@ def example():
 	return render_template('example.html')
 
 
-
+@application.route("/api/v1.0/file_id", methods=['GET'])
+def file_id():
+	id_user = request.json['id_user']
+	file_id = str(id_user+" "+str(datetime.datetime.now()))
+	return jsonify({'file_id', file_id}),200
 
 @application.route("/api/v1.0/gen", methods=['POST'])
 def gen():
@@ -36,7 +31,7 @@ def gen():
 	with open('users.txt','r') as json_file:
 		if (id_user in json.load(json_file)) == False:
 			return  abort(404)
-	file_id = str(id_user+" "+str(datetime.datetime.now()))
+	file_id = request.json['file_id']
 	id_target = request.json['id_target']
 	lang = request.json['lang']
 	reviews_amount = (int)(request.json['reviews_amount'])
@@ -47,11 +42,9 @@ def gen():
 	except:
 		similar_ids=[]
 
-	task = generating.apply_async(args=[id_target,lang,reviews_amount,ratings,mode,file_id,similar_ids])
-	return jsonify({'task_id':task.id, 'file_id':file_id}), 202
+	main(id_target,lang,reviews_amount,ratings,mode,file_id,similar_ids)
+	return "Copleted generting reviews for "+id_target, 202
 
-def generating(self,id_target,lang,reviews_amount,ratings,mode,name, similar_ids):
-	Main.main(id_target,lang,reviews_amount,ratings,mode,name,similar_ids)
 
 
 
@@ -75,36 +68,6 @@ def get_reviews():
 			i+=1
 	return r
 
-
-@application.route("/api/v1.0/progress/<task_id>")
-def taskstatus(task_id):
-    task = generating.AsyncResult(task_id)
-    if task.state == 'PENDING':
-        # job did not start yet
-        response = {
-            'state': task.state,
-            'current': 0,
-            'total': 1,
-            'status': 'Pending...'
-        }
-    elif task.state != 'FAILURE':
-        response = {
-            'state': task.state,
-            'current': task.info.get('current', 0),
-            'total': task.info.get('total', 1),
-            'status': task.info.get('status', '')
-        }
-        if 'result' in task.info:
-            response['result'] = task.info['result']
-    else:
-        # something went wrong in the background job
-        response = {
-            'state': task.state,
-            'current': 1,
-            'total': 1,
-            'status': str(task.info),  # this is the exception raised
-        }
-    return jsonify(response)
 
 
 @application.route("/api/v1.0/progress",methods=['GET'])
