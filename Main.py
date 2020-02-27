@@ -11,6 +11,7 @@ from io import open
 import os
 import datetime
 import sys
+from celery import Celery
 
 def app_exists(soup):
 	#if the app exists in the Google
