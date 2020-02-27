@@ -23,7 +23,7 @@ def example():
 def get_file_id():
 	user_id = request.json['user_id']
 	file_id = str(user_id+" "+str(datetime.datetime.now()))
-	return jsonify({'file_id', file_id}),200
+	return jsonify({'file_id': file_id}),200
 
 @application.route("/api/v1.0/gen", methods=['POST'])
 def gen():
@@ -43,7 +43,7 @@ def gen():
 		similar_ids=[]
 
 	main(target_id,lang,reviews_amount,ratings,mode,file_id,similar_ids)
-	return "Copleted generting reviews for "+target_id, 202
+	return ("Copleted generting reviews for "+target_id), 202
 
 
 
