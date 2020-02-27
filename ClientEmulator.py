@@ -23,7 +23,7 @@ def request_file_id(dict):
 
 
 def similar(id_):
-	res = requests.get('http://80.249.144.13:5000/api/v1.0/request_file_id/'+id_)
+	res = requests.get('http://gen-review.net/api/v1.0/request_file_id/'+id_)
 	if res.ok:
 		return (res.json())	
 
