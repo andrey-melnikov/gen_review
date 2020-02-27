@@ -20,12 +20,12 @@ def app_exists(soup):
 	except:
 		sys.exit('App with this id is not found')
 
-def check_id(id_target):
-	if id_target=='':
+def check_id(target_id):
+	if target_id=='':
 		sys.exit('Search box is null')
 
 	#if user accidentally adds the whole url to input we break the program
-	if 'https://play.google.com/store/apps/details?id=' in id_target:
+	if 'https://play.google.com/store/apps/details?id=' in target_id:
 		sys.exit("Do not use the whole URL, use id (ex: com.Company.Appname) instead")
 
 def similar_apps_exist(id_):
@@ -49,7 +49,7 @@ def get_source_similar_apps_ids(soup):
 def manually_add_ids(ids):
 	for i in range(len(ids)):
 		check_id(ids[i])
-		url = 'https://play.google.com/store/apps/details?id='+id_target
+		url = 'https://play.google.com/store/apps/details?id='+target_id
 		soup = BeautifulSoup(requests.get(url).text,'lxml')
 		app_exists(soup)
 	return ids
@@ -98,14 +98,14 @@ def launch_driver():
 	return driver
 
 
-def main(id_target, lang, reviews_amount, ratings, mode_t, output_name, similar_ids):
-	#check the format of the id_target
-	check_id(id_target)
+def main(target_id, lang, reviews_amount, ratings, mode_t, output_name, similar_ids):
+	#check the format of the target_id
+	check_id(target_id)
 	#create a url of the target app
-	url = 'https://play.google.com/store/apps/details?id='+id_target+'&gl=us&hl='+lang
+	url = 'https://play.google.com/store/apps/details?id='+target_id+'&gl=us&hl='+lang
 	#get the static content of the target app's page
 	soup = BeautifulSoup(requests.get(url).text,'lxml')
-	#check if app with id_target exists
+	#check if app with target_id exists
 	app_exists(soup)
 
 	#create and open for writing the output file for reviews
@@ -148,14 +148,14 @@ def main(id_target, lang, reviews_amount, ratings, mode_t, output_name, similar_
 
 
 if __name__ =="__main__":
-	id_target = "com.ansangha.drjb"
+	target_id = "com.ansangha.drjb"
 	lang = "en-US"
 	reviews_amount = 200
 	ratings = 1
 	mode = "Short"
 	output_name = str(datetime.datetime.now())
 	
-	if similar_apps_exist(id_target):
+	if similar_apps_exist(target_id):
 		auto=True
 		similar_ids=[]
 	else:
@@ -163,4 +163,4 @@ if __name__ =="__main__":
 		auto=False
 		similar_ids=[]
 
-	main(id_target,lang, reviews_amount, ratings, mode, output_name, similar_ids)
+	main(target_id,lang, reviews_amount, ratings, mode, output_name, similar_ids)

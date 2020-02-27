@@ -19,20 +19,20 @@ def example():
 	return render_template('example.html')
 
 
-@application.route("/api/v1.0/file_id", methods=['GET'])
+@application.route("/api/v1.0/request_file_id", methods=['GET'])
 def get_file_id():
-	id_user = request.json['id_user']
-	file_id = str(id_user+" "+str(datetime.datetime.now()))
+	user_id = request.json['user_id']
+	file_id = str(user_id+" "+str(datetime.datetime.now()))
 	return jsonify({'file_id', file_id}),200
 
 @application.route("/api/v1.0/gen", methods=['POST'])
 def gen():
-	id_user = request.json['id_user']
+	user_id = request.json['user_id']
 	with open('users.txt','r') as json_file:
-		if (id_user in json.load(json_file)) == False:
+		if (user_id in json.load(json_file)) == False:
 			return  abort(404)
 	file_id = request.json['file_id']
-	id_target = request.json['id_target']
+	target_id = request.json['target_id']
 	lang = request.json['lang']
 	reviews_amount = (int)(request.json['reviews_amount'])
 	mode=request.json['length']
@@ -42,8 +42,8 @@ def gen():
 	except:
 		similar_ids=[]
 
-	main(id_target,lang,reviews_amount,ratings,mode,file_id,similar_ids)
-	return "Copleted generting reviews for "+id_target, 202
+	main(target_id,lang,reviews_amount,ratings,mode,file_id,similar_ids)
+	return "Copleted generting reviews for "+target_id, 202
 
 
 
