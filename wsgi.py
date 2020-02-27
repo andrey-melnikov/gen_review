@@ -48,7 +48,7 @@ def gen():
 		similar_ids=[]
 
 	task = generating.apply_async(args=[id_target,lang,reviews_amount,ratings,mode,file_id,similar_ids])
-	return jsonify({}), 202, {'Location': url_for('taskstatus',task_id=task.id), 'file_id':file_id}
+	return jsonify({}), 202, {'task_id':task.id, 'file_id':file_id}
 
 @celery.task(bind=True)
 def generating(self,id_target,lang,reviews_amount,ratings,mode,name, similar_ids):
