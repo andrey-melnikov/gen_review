@@ -47,7 +47,7 @@ def gen():
 		similar_ids=[]
 
 	Main.main(target_id,lang,reviews_amount,ratings,mode,file_id,similar_ids)
-	return ("Copleted generting reviews for "+target_id), 202
+	return jsonify({'result':'Completed'}), 202
 
 
 
