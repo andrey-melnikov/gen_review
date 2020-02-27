@@ -18,9 +18,9 @@ def api_info():
 def example():
 	return render_template('example.html')
 
-@application.route("/api/v1.0/similar_apps_exist/<target_id>", methods=['GET'])
+@application.route("/api/v1.0/similar_apps_exist", methods=['GET'])
 def similar_apps_exist(target_id):
-	return Main.similar_apps_exist(target_id),200
+	return Main.similar_apps_exist(request.json['target_id']),200
 
 
 @application.route("/api/v1.0/request_file_id", methods=['GET'])
