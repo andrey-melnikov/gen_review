@@ -16,6 +16,11 @@ def post_id(dict):
 	if res.ok:
 		return (res.json())	
 
+def request_file_id(dict):
+	res = requests.get('http://80.249.144.13:5000/api/v1.0/file_id', json=dict)
+	if res.ok:
+		return (res.json())	
+
 if __name__ == "__main__":
 	dict = {'id_user':'user2',
 			'id_target': 'com.ansangha.drjb',
@@ -23,6 +28,7 @@ if __name__ == "__main__":
 			'reviews_amount': 20,
 			'length': "Short",
 			'ratings':1}
+	print(request_file_id({'id_user': 'user2'}))
 	#print(post_id(dict))
 	#print(get_reviews({'file_id':'user2 2020-02-27 20:22:56.601308', 'ratings':"1"}))
 	#print(progress("f635e99d-7737-4498-b9ec-501316093de3"))

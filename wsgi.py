@@ -20,7 +20,7 @@ def example():
 
 
 @application.route("/api/v1.0/file_id", methods=['GET'])
-def file_id():
+def get_file_id():
 	id_user = request.json['id_user']
 	file_id = str(id_user+" "+str(datetime.datetime.now()))
 	return jsonify({'file_id', file_id}),200
