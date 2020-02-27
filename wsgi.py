@@ -49,7 +49,7 @@ def generate():
 @application.route("/api/v1.0/get_reviews", methods=['GET'])
 def get_reviews():
 	if 'time' in session:
-		ratings = (int)request.json['ratings']
+		ratings = (int)(request.json['ratings'])
 		output_path = "output/reviews/"+session['time']+".txt"
 		return output_path
 		output_file = open(output_path, 'r',encoding='utf-8')
