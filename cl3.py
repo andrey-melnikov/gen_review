@@ -29,14 +29,14 @@ def similar(id_):
 
 if __name__ == "__main__":
 	dict = {'user_id':'user2',
-			'target_id': 'com.ansangha.drjb',
+			'target_id': 'com.stickyhands.farmville',
 			'lang':'en_US',
 			'reviews_amount': 200,
 			'length': "Short",
-			'file_id':'user2 2020-02-27 22:53:44.456789',
+			'file_id':'user2 2020-02-27 22:54:53.360995',
 			'ratings':1}
 	#print(request_file_id({'user_id': 'user2'}))
-	#print(post_id(dict))
-	#print(get_reviews({'file_id':'user2 2020-02-27 22:53:44.456789', 'ratings':"1"}))
+	print(post_id(dict))
+	#print(get_reviews({'file_id':'user2 2020-02-27 22:54:53.360995', 'ratings':"1"}))
 	#print(progress("f635e99d-7737-4498-b9ec-501316093de3"))
 	#print(similar({'target_id':'com.AndreyMelnikov.DroneRacingSimulator'}))

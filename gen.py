@@ -85,10 +85,13 @@ def load_reviews(driver, url, reviews_amount, ratings, mode,output_file):
 					break;
 			except:
 				break
-	
-		folders_analized,filtered_folders_count = output(driver, output_file,ratings,folders_analized,filtered_folders_count)
-		out('[This page] Correct rating reviews: '+str(filtered_folders_count), False)
-		out('[This page] Total reviews: '+str(folders_analized),False)
+		
+		if running:
+			folders_analized,filtered_folders_count = output(driver, output_file,ratings,folders_analized,filtered_folders_count)
+			out('[This page] Correct rating reviews: '+str(filtered_folders_count), False)
+			out('[This page] Total reviews: '+str(folders_analized),False)
+		else:
+			return folders_analized
 
 		if (filtered_folders_count>=reviews_amount):
 			running=False
