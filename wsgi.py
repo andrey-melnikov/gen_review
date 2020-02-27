@@ -50,7 +50,6 @@ def gen():
 	task = generating.apply_async(args=[id_target,lang,reviews_amount,ratings,mode,file_id,similar_ids])
 	return jsonify({'task_id':task.id, 'file_id':file_id}), 202
 
-@celery.task(bind=True)
 def generating(self,id_target,lang,reviews_amount,ratings,mode,name, similar_ids):
 	Main.main(id_target,lang,reviews_amount,ratings,mode,name,similar_ids)
 
