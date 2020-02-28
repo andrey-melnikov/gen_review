@@ -1,8 +1,28 @@
 
 {% extends "base.html" %}
 {% block content %}
-        <h1>API INFORMATION.</h1>
-        <h2>http://gen-review.net/</h2>
+		<h1>API INFORMATION.</h1>
+
+		<h3>http://gen-review.net/api/v1.0/similar_apps_count</h3>
+		<p>input {'target_id': 'com.appadvisory.drawclimber'}</p>
+		<p>returns {'similar_apps_count': '1'}</p>
+		<h3>Counts how many apps are similar to the given one. Similar apps - source of generated reviews</h5>
+		
+		<h3>http://gen-review.net/api/v1.0/request_file_id</h3>
+		<p>input {'user_id': 'your_id'}</p>
+		<p>returns {'file_id': 'your_id 2020-02-27 22:53:44.456785'}</p>
+		<h3>Returns the name of the file with generated reviews</h5>
+
+		<h3>http://gen-review.net/api/v1.0/gen</h3>
+		<p>input {'user_id': 'your_id', 'file_id':'your_id 2020-02-27 22:53:44.456785', 'target_id':'com.appadvisory.drawclimber', 'lang':'en_US', 'reviews_amount':'20', 'length': 'Long', 'ratings':'1','similar_ids':['com.Comp1.App1', 'com.Comp2.App2','com.Comp3.App3']}</p>
+		<p>returns {'result': 'Completed'}</p>
+		<h3>Saves reviews to a given file_id</h5>
+
+		<h3>http://gen-review.net/api/v1.0/get_reviews</h3>
+		<p>input {'file_id': 'your_id 2020-02-27 22:53:44.456785','ratings':1}</p>
+		<p>returns {'1': 'Cool app', '2':'Love it', '3':'Super game!', '4':'Addictive','5':'Like it very much','6':'Super amazing'}</p>
+		<h3>Returns generated reviews from file_id with specified rating (ratings = -1 negative reviews, ratings = 0 3 rate reviews, ratings = 1 positive reviews)</h5>
+
 {%endblock%}
 
 
