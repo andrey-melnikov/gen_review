@@ -4,10 +4,11 @@
 function UserAction() {
 	var request = new XMLHttpRequest()
 
-	request.open("GET", "http://gen-review.net/api/v1.0/similar_apps_count");
+	request.open("GET", "http://gen-review.net/api/v1.0/similar_apps_count", true);
+	xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 	request.send(JSON.stringify({ "target_id": "com.appadvisory.drawclimber" }));
-	request.onload=()=>{
-		document.getElementById("similar_apps_count_result").innerHTML =JSON.parse(request.responseText);
+	request.onreadystatechange = (e) => {
+		document.getElementById("similar_apps_count_result").innerHTML =request.responseText;
 	}
 }	
 </script>
