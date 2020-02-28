@@ -18,12 +18,12 @@ def api_info():
 def example():
 	return render_template('example.html')
 
-@application.route("/api/v1.0/similar_apps_count", methods=['GET'])
+@application.route("/api/v1.0/similar_apps_count", methods=['POST'])
 def similar_apps_count():
 	return jsonify({'similar_apps_count':str(Main.similar_apps_count(request.json['target_id']))}),200
 
 
-@application.route("/api/v1.0/request_file_id", methods=['GET'])
+@application.route("/api/v1.0/request_file_id", methods=['POST'])
 def get_file_id():
 	user_id = request.json['user_id']
 	file_id = str(user_id+" "+str(datetime.datetime.now()))
@@ -54,7 +54,7 @@ def gen():
 
 
 
-@application.route("/api/v1.0/get_reviews", methods=['GET'])
+@application.route("/api/v1.0/get_reviews", methods=['POST'])
 def get_reviews():
 	file_id = request.json['file_id']
 	ratings = (int)(request.json['ratings'])
