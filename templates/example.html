@@ -7,9 +7,9 @@ function UserAction() {
 	request.open("GET", "http://gen-review.net/api/v1.0/similar_apps_count", true);
 	request.setRequestHeader('Content-type','application/json; charset=utf-8');
 	request.send(JSON.stringify({ "target_id": "com.appadvisory.drawclimber" }));
-	request.onreadystatechange = (e) => {
+	/*request.onreadystatechange = (e) => {
 		document.getElementById("similar_apps_count_result").innerHTML =request.responseText;
-	}
+	}*/
 }	
 </script>
 
