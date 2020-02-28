@@ -8,3 +8,13 @@ div.api_ref{
 	left: 30px;
 }
 
+.api_dict{
+	position: relative;
+	border: 3px solid blue;
+}
+
+.api_dict_text{
+	position:relative;
+	left: 30px;
+}
+

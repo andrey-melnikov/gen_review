@@ -29,17 +29,16 @@
 
 <div class="api_dict">
 	<p class="api_dict_text">
-		'target_id' - (string) id of the app you want to generate reviews for. Example: 'com.Company.App'
-		'similar_apps_count' - (string) number of sources to get reviews from. Example: '3'
-		'user_id' - (string) your id given by the API developer. Used for authorization. Example: 'dfhjnlt74jl'
-		'file_id' - (string) name of the file where your reviews are stored.
-		'lang' - (string) language you want to get reviews in. Example: 'en_US'
-		'reviews_amount' - (string) minimum amount of reviews you want to generate. Example: '500'
-		'length' - (string) 'Long' or 'Short'. 'Long' - generate long reviews. 'Short' - generate short reviews.
-		'ratings' - (int) 1 or 0 or -1. 1 = generate positive reviews. 0 = generate reviews with rate 3. -1 = generate negative reviews.
-		'similar_ids' - (array) id's of the apps you want to get reviews from. If similar_apps_count function returned low amount of similar apps (1-2), you can set similar apps manually. If there are enough similar app returned by similar_apps_count, then you can skip this parameter. Example: ['com.Comp1.App1', 'com.Comp2.App2','com.Comp3.App3']
+		'target_id' - (string) id of the app you want to generate reviews for. Example: 'com.Company.App'<br>
+		'similar_apps_count' - (string) number of sources to get reviews from. Example: '3'<br>
+		'user_id' - (string) your id given by the API developer. Used for authorization. Example: 'dfhjnlt74jl'<br>
+		'file_id' - (string) name of the file where your reviews are stored.<br>
+		'lang' - (string) language you want to get reviews in. Example: 'en_US'<br>
+		'reviews_amount' - (string) minimum amount of reviews you want to generate. Example: '500'<br>
+		'length' - (string) 'Long' or 'Short'. 'Long' - generate long reviews. 'Short' - generate short reviews.<br>
+		'ratings' - (int) 1 or 0 or -1. 1 = generate positive reviews. 0 = generate reviews with rate 3. -1 = generate negative reviews.<br>
+		'similar_ids' - (array) id's of the apps you want to get reviews from. If similar_apps_count function returned low amount of similar apps (1-2), you can set similar apps manually. If there are enough similar app returned by similar_apps_count, then you can skip this parameter. Example: ['com.Comp1.App1', 'com.Comp2.App2','com.Comp3.App3']<br>
 		'result' - (string) 'Completed'. Returns when the generator finishes its work.
-
 	</p>
 </div>
 {%endblock%}
