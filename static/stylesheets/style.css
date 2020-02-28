@@ -1,6 +1,6 @@
 div.api_ref{
 	position: relative;
-	border: 3px solid grey;
+	border: 3px solid blue;
 }
 
 .api_text{
@@ -10,7 +10,7 @@ div.api_ref{
 
 .api_dict{
 	position: relative;
-	border: 3px solid blue;
+	border: 3px solid grey;
 }
 
 .api_dict_text{
