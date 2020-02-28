@@ -2,14 +2,18 @@
 {% block content %}
 <script>
 function UserAction() {
-	var request = new XMLHttpRequest()
 
-	request.open("GET", "http://gen-review.net/api/v1.0/similar_apps_count", true);
-	request.setRequestHeader('Content-type','application/json; charset=utf-8');
-	request.send(JSON.stringify({ "target_id": "com.appadvisory.drawclimber" }));
-	/*request.onreadystatechange = (e) => {
-		document.getElementById("similar_apps_count_result").innerHTML =request.responseText;
-	}*/
+
+	const data = { "target_id": "com.appadvisory.drawclimber" };
+	const options = {
+		method: 'GET',
+		headers: {
+			'Content-Type':'application/json'
+		},
+		body: JSON,stringify(data)
+	};
+
+	fetch("http://gen-review.net/api/v1.0/similar_apps_count", options);
 }	
 </script>
 
