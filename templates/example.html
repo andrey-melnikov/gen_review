@@ -14,7 +14,7 @@ function UserAction() {
 	};
 
 	fetch("http://gen-review.net/api/v1.0/similar_apps_count", options).then((response) => {
-    document.getElementById("similar_apps_count_result").innerHTML =  JSON.stringify(response.json());
+    document.getElementById("similar_apps_count_result").innerHTML =  response.json()['similar_apps_count'];
   });
 
 }	

@@ -20,8 +20,6 @@ def example():
 
 @application.route("/api/v1.0/similar_apps_count", methods=['POST'])
 def similar_apps_count():
-	print('Result:')
-	print(Main.similar_apps_count(request.json['target_id']))
 	return jsonify({'similar_apps_count':str(Main.similar_apps_count(request.json['target_id']))}),200
 
 
