@@ -1,18 +1,18 @@
 {% extends "base.html"%}
 {% block content %}
 <script>
-	function UserAction(method, url, json,) {
+	function UserAction() {
 const userAction = async () => {
-  const response = await fetch(url, {
-    method: method,
-    body: json,
+  const response = await fetch("http://gen-review.net/api/v1.0/similar_apps_count", {
+    method: "GET",
+    body: {"target_id":"com.appadvisory.drawclimber"},
     headers: {
       'Content-Type': 'application/json'
     }
   });
   const myJson = await response.json(); //extract JSON from the http response
   // do something with myJson
-document.getElementById("demo").innerHTML = myJson;
+document.getElementById("similar_apps_count_result").innerHTML = "Yes";
 }
 }	
 </script>
@@ -29,7 +29,7 @@ document.getElementById("demo").innerHTML = myJson;
 			<label for="target_id">'target_id'</label><br>
 			<input type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
 		</form>
-		<button type="button" onclick="UserAction('GET', 'http://gen-review.net/api/v1.0/similar_apps_count', 'com.appadvisory.drawclimber','com.appadvisory.drawclimber','similar_apps_count_result')">SEND</button>
+		<button type="button" onclick="UserAction()">SEND</button>
 		<p>Result: </p>
 		<p id="similar_apps_count_result"></p>
 	</li>
