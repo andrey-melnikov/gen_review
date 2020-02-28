@@ -10,7 +10,7 @@ function UserAction() {
 		headers: {
 			'Content-Type':'application/json'
 		},
-		body: JSON,stringify(data)
+		body: JSON.stringify(data)
 	};
 
 	fetch("http://gen-review.net/api/v1.0/similar_apps_count", options);
