@@ -13,9 +13,11 @@ function UserAction() {
 		body: JSON.stringify(data)
 	};
 
-	fetch("http://gen-review.net/api/v1.0/similar_apps_count", options).then((response) => {
-     
-     document.getElementById("similar_apps_count_result").innerHTML = response.json();
+	fetch("http://gen-review.net/api/v1.0/similar_apps_count", options). .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    document.getElementById("similar_apps_count_result").innerHTML = data;
   });
 
 }	
