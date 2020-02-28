@@ -28,7 +28,7 @@
 </div>
 
 <div class="api_dict">
-	<h3>JSON keys and values</h3>
+	<h3 class="api_dict_text">JSON keys and values</h3>
 
 	<p class="api_dict_text">
 		<strong><big>'target_id'</strong></big> - (string) id of the app you want to generate reviews for. <br>Example: 'com.Company.App'<br>
@@ -41,6 +41,7 @@
 		<strong><big>'ratings'</strong></big> - (int) 1 or 0 or -1. 1 = generate positive reviews. 0 = generate reviews with rate 3. -1 = generate negative reviews.<br>
 		<strong><big>'similar_ids'</strong></big> - (array) id's of the apps you want to get reviews from. <br>If similar_apps_count function returned low amount of similar apps (1-2), you can set similar apps manually. <br>If there are enough similar app returned by similar_apps_count, then you can skip this parameter. <br>Example: ['com.Comp1.App1', 'com.Comp2.App2','com.Comp3.App3']<br>
 		<strong><big>'result'</strong></big> - (string) 'Completed'. Returns when the generator finishes its work.
+		
 	</p>
 </div>
 {%endblock%}
