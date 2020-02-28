@@ -4,6 +4,7 @@ div.api_ref{
 }
 
 .api_text{
+	position:relative;
 	left:30px;
 }
 
