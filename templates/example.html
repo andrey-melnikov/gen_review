@@ -1,19 +1,23 @@
 {% extends "base.html"%}
 {% block content %}
 <script>
-	function UserAction() {
-const userAction = async () => {
-  const response = await fetch("http://gen-review.net/api/v1.0/similar_apps_count", {
-    method: "GET",
-    body: {"target_id":"com.appadvisory.drawclimber"},
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
-  const myJson = await response.json(); //extract JSON from the http response
-document.getElementById("similar_apps_count_result").innerHTML = "Yes";
+function UserAction() {
+	var request = new XMLHttpRequest()
 
+	request.open("GET", "http://gen-review.net/api/v1.0/similar_apps_count");
+	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	//request.send(JSON.stringify({ "email": "hello@user.com", "response": { "name": "Tester" } }));
+
+	request.onload = function() {
+	// Begin accessing JSON data here
+	var data = JSON.parse(this.response)
+	if (request.status >= 200 && request.status < 400) {
+		document.getElementById("similar_apps_count_result").innerHTML = "Yes";
+	} else {
+		document.getElementById("similar_apps_count_result").innerHTML = "No";
+	}
 }
+
 }	
 </script>
 
