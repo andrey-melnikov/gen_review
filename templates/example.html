@@ -9,7 +9,7 @@ function UserAction() {
 	request.send(JSON.stringify({ "target_id": "com.appadvisory.drawclimber" }));
 
 	request.onreadystatechange = (e) => {
-		document.getElementById("similar_apps_count_result").innerHTML =request.responseText
+		document.getElementById("similar_apps_count_result").innerHTML =request.responseText;
 	}
 }	
 </script>
