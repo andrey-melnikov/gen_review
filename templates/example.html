@@ -13,7 +13,7 @@ function UserAction() {
 		body: JSON.stringify(data)
 	};
 
-    let response = await fetch("http://gen-review.net/api/v1.0/similar_apps_count", options);
+    response = await fetch("http://gen-review.net/api/v1.0/similar_apps_count", options);
 
 if (response.ok) { // если HTTP-статус в диапазоне 200-299
 // получаем тело ответа (см. про этот метод ниже)
