@@ -13,9 +13,14 @@ function UserAction() {
 		body: JSON.stringify(data)
 	};
 
-	fetch("http://gen-review.net/api/v1.0/similar_apps_count", options).then((response) => {
-    document.getElementById("similar_apps_count_result").innerHTML =  response.json()['similar_apps_count'];
-  });
+    let response = await fetch("http://gen-review.net/api/v1.0/similar_apps_count", options);
+
+if (response.ok) { // если HTTP-статус в диапазоне 200-299
+// получаем тело ответа (см. про этот метод ниже)
+document.getElementById("similar_apps_count_result").innerHTML = await response.json();
+} else {
+alert("Ошибка HTTP: " + response.status);
+}
 
 }	
 </script>
