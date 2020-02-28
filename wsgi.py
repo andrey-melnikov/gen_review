@@ -80,4 +80,4 @@ def get_reviews():
 #	return jsonify({'task':task[0]})
 
 if __name__ == "__main__":
-	application.run(host='80.249.144.13')
+	application.run()
