@@ -2,13 +2,12 @@
 {% block content %}
 <script>
 async function UserAction(method,j,api,text_id) {
-	const data = {'target_id':j};
 	const options = {
 		method: method,
 		headers: {
 			'Content-Type':'application/json'
 		},
-		body: JSON.stringify(data)
+		body:  "{'target_id':'com.AndreyMelinkov.DRS'}"
 	};
 
     let response = await fetch('http://gen-review.net/api/v1.0/'+api, options);
