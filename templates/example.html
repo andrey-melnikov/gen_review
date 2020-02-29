@@ -29,7 +29,7 @@ alert("Error HTTP: " + response.status);
 <h1>Example</h1>
 <ol>
 	<li class ="api_ref">
-		<h1 class ="api_text">http://gen-review.net/api/v1.0/similar_apps_count</h1>
+		<h2 class ="api_text">http://gen-review.net/api/v1.0/similar_apps_count</h2>
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">First you need to check if there are enough similar apps to get reviews from for your app. Similar apps are apps with similar user base and app type. <br>
@@ -43,8 +43,10 @@ alert("Error HTTP: " + response.status);
 			<input class ="api_text" type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
 		</form>
 		<button class="button api_text" type="button" onclick="UserAction('POST',document.getElementById('target_id').value,'similar_apps_count','similar_apps_count_result')">SEND</button>
+		<div class ="grey_block">
 		<h3 class ="api_text">Result: </h3>
 		<p  class ="api_text" id="similar_apps_count_result"></p>
+		</div>
 	</li>
 </ol>
 {%endblock%}
