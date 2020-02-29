@@ -3,17 +3,13 @@
 	border: 3px solid blue;
 }
 
-.api_text{
-	position:relative;
-	left: 30px;
-}
 
 .api_dict{
 	position: relative;
 	border: 3px solid grey;
 }
 
-.api_dict_text{
+.api_text{
 	position:relative;
 	left: 30px;
 }
