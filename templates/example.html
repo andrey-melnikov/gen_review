@@ -22,6 +22,24 @@ alert("Error HTTP: " + response.status);
 
 }	
 </script>
+<script>
+function openTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
 
 <h1>Example</h1>
 <ol>
@@ -162,6 +180,20 @@ alert("Error HTTP: " + response.status);
 		<div class ="grey_block">
 		<h3 class ="api_text">Result: </h3>
 		<p  class ="api_text" id="get_review_result"></p>
+		<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'get_review_raw_result')" id="defaultOpen">Raw</button>
+  <button class="tablinks" onclick="openTab(event, 'get_review_beautiful_result')">Beautiful</button>
+</div>
+
+<div id="get_review_raw_result" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <p>Raw text.</p>
+</div>
+
+<div id="get_review_beautiful_result" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <p>Beautiful text.</p> 
+</div>
 		</div>
 	</li>
 </ol>
