@@ -65,7 +65,7 @@
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: var(--active-color);
 }
 
 /* Create an active/current tablink class */
@@ -84,6 +84,7 @@
 /* Style the close button */
 .topright {
   float: right;
+  color: var(--active-color);
   cursor: pointer;
   font-size: 28px;
 }
