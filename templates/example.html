@@ -30,13 +30,14 @@ alert("Error HTTP: " + response.status);
 <ol>
 	<li class ="api_ref">
 		<h1 class ="api_text">http://gen-review.net/api/v1.0/similar_apps_count</h1>
+		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">First you need to check if there are enough similar apps to get reviews from for your app. Similar apps are apps with similar user base and app type. <br>
 		Send request <strong>http://gen-review.net/api/v1.0/similar_apps_count</strong> with json file: <strong>{'target_id': 'com.appadvisory.drawclimber'}</strong>. <strong>target_id</strong> is an id of the app you want to get reviews for.
-		</p>
+		</p></div>
 
 		
-		<form>
+		<form class = "grey_block">
 			<h3 class = "api_text">Parameters</h3>
 			<label class ="api_text" for="target_id">'target_id'</label><br>
 			<input class ="api_text" type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
