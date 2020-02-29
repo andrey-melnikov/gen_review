@@ -42,7 +42,7 @@ alert("Error HTTP: " + response.status);
 		
 		<button class="button api_text" type="button" onclick="UserAction('POST',
 		{'target_id': document.getElementById('target_id').value},
-		'similar_apps_count','similar_apps_count_result')">SEND</button>
+		'similar_apps_count','similar_apps_count_result')">POST</button>
 		
 		<div class ="grey_block">
 		<h3 class ="api_text">Result: </h3>
@@ -50,7 +50,7 @@ alert("Error HTTP: " + response.status);
 		</div>
 	</li>
 
-		<li class ="api_ref">
+	<li class ="api_ref">
 		<h2 class ="api_text">http://gen-review.net/api/v1.0/request_file_id</h2>
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
@@ -60,14 +60,45 @@ alert("Error HTTP: " + response.status);
 
 		
 		<form class = "grey_block">
-			<h3 class = "api_text">Parameters "POST"</h3>
+			<h3 class = "api_text">Parameters</h3>
 			<label class ="api_text" for="user_id">'user_id'</label><br>
 			<input class ="api_text" type="text" id="user_id" name="user_id" value="example_user"><br>
 		</form>
 
 		<button class="button api_text" type="button" onclick="UserAction('POST',
 		{'user_id': document.getElementById('user_id').value},
-		'request_file_id','file_id_result')">SEND</button>
+		'request_file_id','file_id_result')">POST</button>
+
+		<div class ="grey_block">
+		<h3 class ="api_text">Result: </h3>
+		<p  class ="api_text" id="file_id_result"></p>
+		</div>
+	</li>
+
+	<li class ="api_ref">
+		<h2 class ="api_text">http://gen-review.net/api/v1.0/gen</h2>
+		<div class="grey_block">
+		<h3 class = "api_text">Description</h3>
+		<p class ="api_text">Now you can call this function to generate reviews using information received from previous api calls. This function will generate reviews and save them in the file<br>
+		Send request <strong>http://gen-review.net/api/v1.0/gen</strong> with json file: <strong>{<br>'user_id':'user2',<br>
+			'target_id': 'com.ansangha.drjb',<br>
+			'lang':'en_US',<br>
+			'reviews_amount': 20,<br>
+			'length': "Short",<br>
+			'file_id':'user2 2020-02-27 22:53:44.456785',<br>
+			'ratings':1<br>}</strong>.
+		</p></div>
+
+		
+		<form class = "grey_block">
+			<h3 class = "api_text">Parameters</h3>
+			<label class ="api_text" for="user_id">'user_id'</label><br>
+			<input class ="api_text" type="text" id="user_id" name="user_id" value="example_user"><br>
+		</form>
+
+		<button class="button api_text" type="button" onclick="UserAction('POST',
+		{'user_id': document.getElementById('user_id').value},
+		'request_file_id','file_id_result')">POST</button>
 
 		<div class ="grey_block">
 		<h3 class ="api_text">Result: </h3>
