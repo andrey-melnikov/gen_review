@@ -37,7 +37,7 @@
 
 
 .button:hover {
-  background-color: var(--main-light-color);;
+  background-color: var(--main-light-color);
   color: white;
 }
 
