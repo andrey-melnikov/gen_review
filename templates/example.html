@@ -118,14 +118,14 @@ alert("Error HTTP: " + response.status);
 		</form>
 
 		<button class="button api_text" type="button" onclick="UserAction('POST',
-		{'user_id':document.getElementById('user_id').value,
-			'target_id': document.getElementById('target_id').value,
-			'lang':document.getElementById('lang').value,
-			'reviews_amount': document.getElementById('reviews_amount').value,
-			'length': document.getElementById('length').value,
-			'file_id':document.getElementById('file_id').value,
-			'ratings':document.getElementById('ratings').value},
-		'request_file_id','file_id_result')">POST</button>
+		{'user_id':document.getElementById('user_id_gen').value,
+			'target_id': document.getElementById('target_id_gen').value,
+			'lang':document.getElementById('lang_gen').value,
+			'reviews_amount': document.getElementById('reviews_amount_gen').value,
+			'length': document.getElementById('length_gen').value,
+			'file_id':document.getElementById('file_id_gen').value,
+			'ratings':document.getElementById('ratings_gen').value},
+		'request_file_id','file_id_result_gen')">POST</button>
 
 		<div class ="grey_block">
 		<h3 class ="api_text">Result: </h3>
