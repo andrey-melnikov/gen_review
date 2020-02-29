@@ -30,7 +30,7 @@ alert("Error HTTP: " + response.status);
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">First you need to check if there are enough similar apps to get reviews from for your app. Similar apps are apps with similar user base and app type. <br>
-		Send request <strong>http://gen-review.net/api/v1.0/similar_apps_count</strong> with json file: <strong>{'target_id': 'com.appadvisory.drawclimber'}</strong>. <strong>target_id</strong> is an id of the app you want to get reviews for.
+		Send request <strong>http://gen-review.net/api/v1.0/similar_apps_count</strong> with json file: <strong><br>{<br>    'target_id': 'com.appadvisory.drawclimber'<br>}</strong>. <strong>target_id</strong> is an id of the app you want to get reviews for.
 		</p></div>
 
 		
@@ -55,7 +55,7 @@ alert("Error HTTP: " + response.status);
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">You need a to request a file name to save your reviews in it. This function returns the file name (id)<br>
-		Send request <strong>http://gen-review.net/api/v1.0/request_file_id</strong> with json file: <strong>{'user_id': 'example_user'}</strong>. <strong>user_id</strong> is your uniques id. Use <strong>'example_user'</strong> for testing.
+		Send request <strong>http://gen-review.net/api/v1.0/request_file_id</strong> with json file: <strong><br>{<br>    'user_id': 'example_user'<br>}</strong>. <strong>user_id</strong> is your uniques id. Use <strong>'example_user'</strong> for testing.
 		</p></div>
 
 		
