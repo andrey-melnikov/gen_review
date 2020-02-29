@@ -1,3 +1,3 @@
 {
-"user1":"yes","user2":"yes"
+"user1":"yes","user2":"yes","example_user":"yes"
 }

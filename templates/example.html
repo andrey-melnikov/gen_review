@@ -48,5 +48,26 @@ alert("Error HTTP: " + response.status);
 		<p  class ="api_text" id="similar_apps_count_result"></p>
 		</div>
 	</li>
+
+		<li class ="api_ref">
+		<h2 class ="api_text">http://gen-review.net/api/v1.0/request_file_id</h2>
+		<div class="grey_block">
+		<h3 class = "api_text">Description</h3>
+		<p class ="api_text">You need a to request a file name to save your reviews in it. This function returns the file name (id)<br>
+		Send request <strong>http://gen-review.net/api/v1.0/request_file_id</strong> with json file: <strong>{'user_id': 'example_user'}</strong>. <strong>user_id</strong> is your uniques id. Use <strong>'example_user'</strong> for testing.
+		</p></div>
+
+		
+		<form class = "grey_block">
+			<h3 class = "api_text">Parameters "POST"</h3>
+			<label class ="api_text" for="user_id">'user_id'</label><br>
+			<input class ="api_text" type="text" id="user_id" name="user_id" value="example_user"><br>
+		</form>
+		<button class="button api_text" type="button" onclick="UserAction('POST',document.getElementById('user_id').value,'request_file_id','file_id_result')">SEND</button>
+		<div class ="grey_block">
+		<h3 class ="api_text">Result: </h3>
+		<p  class ="api_text" id="file_id_result"></p>
+		</div>
+	</li>
 </ol>
 {%endblock%}
