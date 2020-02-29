@@ -11,7 +11,6 @@ from io import open
 import os
 import datetime
 import sys
-from celery import Celery
 
 def app_exists(soup):
 	#if the app exists in the Google
@@ -147,22 +146,3 @@ def main(target_id, lang, reviews_amount, ratings, mode_t, output_name, similar_
 
 
 
-if __name__ =="__main__":
-	
-
-	target_id = "com.ansangha.drjb"
-	lang = "en-US"
-	reviews_amount = 200
-	ratings = 1
-	mode = "Short"
-	output_name = str(datetime.datetime.now())
-	
-	if similar_apps_count(target_id):
-		auto=True
-		similar_ids=[]
-	else:
-		#fill maually
-		auto=False
-		similar_ids=[]
-
-	#main(target_id,lang, reviews_amount, ratings, mode, output_name, similar_ids)
