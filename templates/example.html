@@ -17,7 +17,8 @@ async function UserAction() {
 
 if (response.ok) { // если HTTP-статус в диапазоне 200-299
 // получаем тело ответа (см. про этот метод ниже)
-document.getElementById("similar_apps_count_result").innerHTML = await JSON.stringify(response.json());
+//document.getElementById("similar_apps_count_result").innerHTML = await JSON.stringify(response.json());
+responce.json().then(json => {document.getElementById("similar_apps_count_result").innerHTML =json;});
 } else {
 alert("Ошибка HTTP: " + response.status);
 }
