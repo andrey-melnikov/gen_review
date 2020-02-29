@@ -38,7 +38,7 @@ async function UserActionDouble(method,data,api,raw_id, beauty_id) {
 if (response.ok) { // если HTTP-статус в диапазоне 200-299
 // получаем тело ответа (см. про этот метод ниже)
 //document.getElementById("similar_apps_count_result").innerHTML = await JSON.stringify(response.json());
-response.json().then(json => {document.getElementById(text_id).innerHTML =JSON.stringify(json);document.getElementById(beauty_id).innerHTML =beautify(JSON.stringify(json));});
+response.json().then(json => {document.getElementById(raw_id).innerHTML =JSON.stringify(json);document.getElementById(beauty_id).innerHTML =beautify(JSON.stringify(json));});
 } else {
 alert("Error HTTP: " + response.status);
 }
