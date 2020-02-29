@@ -30,7 +30,7 @@ alert("Error HTTP: " + response.status);
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">First you need to check if there are enough similar apps to get reviews from for your app. Similar apps are apps with similar user base and app type. <br>
-		Send request <strong>http://gen-review.net/api/v1.0/similar_apps_count</strong> with json file: <strong><br>{<br> &nbsp&nbsp&nbsp&nbsp 'target_id': 'com.appadvisory.drawclimber'<br>}</strong>. <strong>target_id</strong> is an id of the app you want to get reviews for.
+		Send request <strong>http://gen-review.net/api/v1.0/similar_apps_count</strong> with json file: <strong><br>{<br> &nbsp&nbsp&nbsp&nbsp 'target_id': 'com.appadvisory.drawclimber'<br>}<br></strong>. <strong>target_id</strong> is an id of the app you want to get reviews for.
 		</p></div>
 
 		
@@ -55,7 +55,7 @@ alert("Error HTTP: " + response.status);
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">You need a to request a file name to save your reviews in it. This function returns the file name (id)<br>
-		Send request <strong>http://gen-review.net/api/v1.0/request_file_id</strong> with json file: <strong><br>{<br> &nbsp&nbsp&nbsp&nbsp 'user_id': 'example_user'<br>}</strong>. <strong>user_id</strong> is your uniques id. Use <strong>'example_user'</strong> for testing.
+		Send request <strong>http://gen-review.net/api/v1.0/request_file_id</strong> with json file: <strong><br>{<br> &nbsp&nbsp&nbsp&nbsp 'user_id': 'example_user'<br>}<br></strong>. <strong>user_id</strong> is your uniques id. Use <strong>'example_user'</strong> for testing.
 		</p></div>
 
 		
@@ -80,24 +80,51 @@ alert("Error HTTP: " + response.status);
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">Now you can call this function to generate reviews using information received from previous api calls. This function will generate reviews and save them in the file<br>
-		Send request <strong>http://gen-review.net/api/v1.0/gen</strong> with json file: <strong>{<br> &nbsp&nbsp&nbsp&nbsp 'user_id':'user2',<br>
-			 &nbsp&nbsp&nbsp&nbsp 'target_id': 'com.ansangha.drjb',<br>
+		Send request <strong>http://gen-review.net/api/v1.0/gen</strong> with json file: <strong>{<br> &nbsp&nbsp&nbsp&nbsp 'user_id':'example_user',<br>
+			 &nbsp&nbsp&nbsp&nbsp 'target_id': 'com.appadvisory.drawclimber',<br>
 			 &nbsp&nbsp&nbsp&nbsp 'lang':'en_US',<br>
 			 &nbsp&nbsp&nbsp&nbsp 'reviews_amount': 20,<br>
 			 &nbsp&nbsp&nbsp&nbsp 'length': "Short",<br>
-			 &nbsp&nbsp&nbsp&nbsp 'file_id':'user2 2020-02-27 22:53:44.456785',<br>
-			 &nbsp&nbsp&nbsp&nbsp 'ratings':1<br>}</strong>.
+			 &nbsp&nbsp&nbsp&nbsp 'file_id':'example_user 2020-02-27 22:53:44.453464',<br>
+			 &nbsp&nbsp&nbsp&nbsp 'ratings':1<br>}<br></strong>.
+			 For any unknown parameters visit 'api' page.
 		</p></div>
 
 		
 		<form class = "grey_block">
 			<h3 class = "api_text">Parameters</h3>
-			<label class ="api_text" for="user_id">'user_id'</label><br>
-			<input class ="api_text" type="text" id="user_id" name="user_id" value="example_user"><br>
+
+			<label class ="api_text" for="user_id_gen">'user_id'</label><br>
+			<input class ="api_text" type="text" id="user_id_gen" name="user_id_gen" value="example_user"><br>
+
+			<label class ="api_text" for="target_id_gen">'target_id'</label><br>
+			<input class ="api_text" type="text" id="target_id_gen" name="target_id_gen" value="com.appadvisory.drawclimber"><br>
+
+			<label class ="api_text" for="lang_gen">'lang'</label><br>
+			<input class ="api_text" type="text" id="lang_gen" name="lang_gen" value="en_US"><br>
+
+			<label class ="api_text" for="reviews_amount_gen">'reviews_amount'</label><br>
+			<input class ="api_text" type="text" id="reviews_amount_gen" name="reviews_amount_gen" value="20"><br>
+
+			<label class ="api_text" for="length_gen">'length'</label><br>
+			<input class ="api_text" type="text" id="length_gen" name="length_gen" value="Short"><br>
+
+			<label class ="api_text" for="file_id_gen">'file_id'</label><br>
+			<input class ="api_text" type="text" id="file_id_gen" name="file_id_gen" value="example_user 2020-02-27 22:53:44.453464"><br>
+
+			<label class ="api_text" for="ratings_gen">'ratings'</label><br>
+			<input class ="api_text" type="text" id="ratings_gen" name="ratings_gen" value="1"><br>
+
 		</form>
 
 		<button class="button api_text" type="button" onclick="UserAction('POST',
-		{'user_id': document.getElementById('user_id').value},
+		{'user_id':document.getElementById('user_id').value,
+			'target_id': document.getElementById('target_id').value,
+			'lang':document.getElementById('lang').value,
+			'reviews_amount': document.getElementById('reviews_amount').value,
+			'length': document.getElementById('length').value,
+			'file_id':document.getElementById('file_id').value,
+			'ratings':document.getElementById('ratings').value},
 		'request_file_id','file_id_result')">POST</button>
 
 		<div class ="grey_block">
