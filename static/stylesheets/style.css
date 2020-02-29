@@ -1,12 +1,19 @@
+:root {
+  --main-color:#3E7CB1;
+  --main-light-color: #81A4CD;
+  --light-color: :#DBE4EE;
+  --active-color:#F17300;
+}
+
 .api_ref{
 	position: relative;
-	border: 3px solid #3E7CB1;
+	border: 3px solid var(--main-color);
 }
 
 
 .api_dict{
 	position: relative;
-	border: 3px solid #DBE4EE;
+	border: 3px solid var(--main-light-color);
 }
 
 .api_text{
@@ -15,8 +22,8 @@
 }
 
 .button {
-  background-color: white;/
-  border: 2px solid #F17300;
+  background-color: white;
+  border: 2px solid var(--main-color);
   color: black;
   padding: 8px 16px;
   text-align: center;
@@ -30,10 +37,10 @@
 
 
 .button:hover {
-  background-color: #F17300;
+  background-color: var(--main-light-color);;
   color: white;
 }
 
 .grey_block{
-	background-color: #DBE4EE;
+	background-color: var(--light-color);;
 }
