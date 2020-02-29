@@ -30,7 +30,7 @@ alert("Error HTTP: " + response.status);
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">First you need to check if there are enough similar apps to get reviews from for your app. Similar apps are apps with similar user base and app type. <br>
-		Send request <strong>http://gen-review.net/api/v1.0/similar_apps_count</strong> with json file: <strong><br>{<br><nbsp>'target_id': 'com.appadvisory.drawclimber'<br>}</strong>. <strong>target_id</strong> is an id of the app you want to get reviews for.
+		Send request <strong>http://gen-review.net/api/v1.0/similar_apps_count</strong> with json file: <strong><br>{<br> &nbsp&nbsp&nbsp&nbsp 'target_id': 'com.appadvisory.drawclimber'<br>}</strong>. <strong>target_id</strong> is an id of the app you want to get reviews for.
 		</p></div>
 
 		
@@ -80,13 +80,13 @@ alert("Error HTTP: " + response.status);
 		<div class="grey_block">
 		<h3 class = "api_text">Description</h3>
 		<p class ="api_text">Now you can call this function to generate reviews using information received from previous api calls. This function will generate reviews and save them in the file<br>
-		Send request <strong>http://gen-review.net/api/v1.0/gen</strong> with json file: <strong>{<br>'user_id':'user2',<br>
-			'target_id': 'com.ansangha.drjb',<br>
-			'lang':'en_US',<br>
-			'reviews_amount': 20,<br>
-			'length': "Short",<br>
-			'file_id':'user2 2020-02-27 22:53:44.456785',<br>
-			'ratings':1<br>}</strong>.
+		Send request <strong>http://gen-review.net/api/v1.0/gen</strong> with json file: <strong>{<br> &nbsp&nbsp&nbsp&nbsp 'user_id':'user2',<br>
+			 &nbsp&nbsp&nbsp&nbsp 'target_id': 'com.ansangha.drjb',<br>
+			 &nbsp&nbsp&nbsp&nbsp 'lang':'en_US',<br>
+			 &nbsp&nbsp&nbsp&nbsp 'reviews_amount': 20,<br>
+			 &nbsp&nbsp&nbsp&nbsp 'length': "Short",<br>
+			 &nbsp&nbsp&nbsp&nbsp 'file_id':'user2 2020-02-27 22:53:44.456785',<br>
+			 &nbsp&nbsp&nbsp&nbsp 'ratings':1<br>}</strong>.
 		</p></div>
 
 		
