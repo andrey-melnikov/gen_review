@@ -35,8 +35,8 @@ alert("Error HTTP: " + response.status);
 
 		<p class ="api_text"><big><strong>http://gen-review.net/api/v1.0/similar_apps_count</strong></big></p>
 		<form>
-			<label for="target_id">'target_id'</label><br>
-			<input type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
+			<label class ="api_text" for="target_id">'target_id'</label><br>
+			<input class ="api_text" type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
 		</form>
 		<button class="button api_text" type="button" onclick="UserAction('POST',document.getElementById('target_id').value,'similar_apps_count','similar_apps_count_result')">SEND</button>
 		<p class ="api_text">Result: </p>
