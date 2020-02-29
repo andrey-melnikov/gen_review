@@ -13,7 +13,7 @@ async function UserAction(method,target_id,api,text_id) {
 		body: JSON.stringify(data)
 	};
 
-    let response = await fetch(api, options);
+    let response = await fetch('http://gen-review.net/api/v1.0/'+api, options);
 
 if (response.ok) { // если HTTP-статус в диапазоне 200-299
 // получаем тело ответа (см. про этот метод ниже)
