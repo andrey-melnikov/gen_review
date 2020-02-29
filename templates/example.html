@@ -1,24 +1,24 @@
 {% extends "base.html"%}
 {% block content %}
 <script>
-async function UserAction() {
+async function UserAction(method,target_id,api,text_id) {
 
 
-	const data = { "target_id": "com.appadvisory.drawclimber" };
+	const data = { "target_id": target_id };
 	const options = {
-		method: 'POST',
+		method: method,
 		headers: {
 			'Content-Type':'application/json'
 		},
 		body: JSON.stringify(data)
 	};
 
-    let response = await fetch("http://gen-review.net/api/v1.0/similar_apps_count", options);
+    let response = await fetch(api, options);
 
 if (response.ok) { // если HTTP-статус в диапазоне 200-299
 // получаем тело ответа (см. про этот метод ниже)
 //document.getElementById("similar_apps_count_result").innerHTML = await JSON.stringify(response.json());
-response.json().then(json => {document.getElementById("similar_apps_count_result").innerHTML =JSON.stringify(json);});
+response.json().then(json => {document.getElementById(text_id).innerHTML =JSON.stringify(json);});
 } else {
 alert("Ошибка HTTP: " + response.status);
 }
@@ -38,7 +38,7 @@ alert("Ошибка HTTP: " + response.status);
 			<label for="target_id">'target_id'</label><br>
 			<input type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
 		</form>
-		<button type="button" onclick="UserAction()">SEND</button>
+		<button type="button" onclick="UserAction('POST','com.appadvisory.drawclimber','similar_apps_count','similar_apps_count_result')">SEND</button>
 		<p>Result: </p>
 		<p id="similar_apps_count_result"></p>
 	</li>
