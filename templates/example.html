@@ -2,7 +2,7 @@
 {% block content %}
 <script>
 async function UserAction(method,j,api,text_id) {
-	const data = j;
+	const data = {'target_id':j};
 	const options = {
 		method: method,
 		headers: {
