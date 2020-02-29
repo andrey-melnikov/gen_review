@@ -1,12 +1,12 @@
 .api_ref{
 	position: relative;
-	border: 3px solid blue;
+	border: 3px solid #3E7CB1;
 }
 
 
 .api_dict{
 	position: relative;
-	border: 3px solid grey;
+	border: 3px solid #DBE4EE;
 }
 
 .api_text{
@@ -15,8 +15,8 @@
 }
 
 .button {
-  background-color: white; /* Green */
-  border: 2px solid #008CBA;
+  background-color: white;/
+  border: 2px solid #F17300;
   color: black;
   padding: 8px 16px;
   text-align: center;
@@ -30,10 +30,10 @@
 
 
 .button:hover {
-  background-color: #008CBA;
+  background-color: #F17300;
   color: white;
 }
 
 .grey_block{
-	background-color: grey;
+	background-color: #DBE4EE;
 }
