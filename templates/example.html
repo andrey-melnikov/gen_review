@@ -87,7 +87,7 @@ alert("Error HTTP: " + response.status);
 			 &nbsp&nbsp&nbsp&nbsp 'length': "Short",<br>
 			 &nbsp&nbsp&nbsp&nbsp 'file_id':'example_user 2020-02-27 22:53:44.453464',<br>
 			 &nbsp&nbsp&nbsp&nbsp 'ratings':1<br>}<br></strong>.
-			 For any unknown parameters visit 'api' page.
+			 For any unknown parameters visit 'api' page.<br><strong><strong>DON'T WAIT FOR RESULT. YOU CAN CALL THE NEXT FUNCTION IMMIDEATELY AFTER THIS.</strong></strong>
 		</p></div>
 
 		
@@ -110,10 +110,13 @@ alert("Error HTTP: " + response.status);
 			<input class ="api_text" type="text" id="length_gen" name="length_gen" value="Short"><br>
 
 			<label class ="api_text" for="file_id_gen">'file_id'</label><br>
-			<input class ="api_text" type="text" id="file_id_gen" name="file_id_gen" value="example_user 2020-02-27 22:53:44.453464"><br>
+			<input class ="api_text" type="text" id="file_id_gen" name="file_id_gen" value=""><br>
 
 			<label class ="api_text" for="ratings_gen">'ratings'</label><br>
 			<input class ="api_text" type="text" id="ratings_gen" name="ratings_gen" value="1"><br>
+
+			<label class ="api_text" for="similar_ids_gen">'similar_ids (optional, leave null if similar_apps_count returned more than 2)'</label><br>
+			<input class ="api_text" type="text" id="similar_ids_gen" name="similar_ids_gen"><br>
 
 		</form>
 
@@ -124,12 +127,41 @@ alert("Error HTTP: " + response.status);
 			'reviews_amount': document.getElementById('reviews_amount_gen').value,
 			'length': document.getElementById('length_gen').value,
 			'file_id':document.getElementById('file_id_gen').value,
-			'ratings':document.getElementById('ratings_gen').value},
+			'ratings':document.getElementById('ratings_gen').value,
+			'similar_ids':document.getElementById('similar_ids_gen').value},
 		'gen','gen_result')">POST</button>
 
 		<div class ="grey_block">
 		<h3 class ="api_text">Result: </h3>
 		<p  class ="api_text" id="gen_result"></p>
+		</div>
+	</li>
+
+	<li class ="api_ref">
+		<h2 class ="api_text">http://gen-review.net/api/v1.0/get_reviews</h2>
+		<div class="grey_block">
+		<h3 class = "api_text">Description</h3>
+		<p class ="api_text">Get your generated reviews by calling this function. Note that reviews are added constantly, so you don't need to wait 'gen' function to finish. You need to call this function a few times until you get enough reviews.<br>
+		Send request <strong>http://gen-review.net/api/v1.0/get_reviews</strong> with json file: <strong><br>{<br> &nbsp&nbsp&nbsp&nbsp 'file_id': 'example_user 2020-02-27 22:53:44.453464',<br>&nbsp&nbsp&nbsp&nbsp 'ratings': '1'<br>}<br></strong>.
+		</p></div>
+
+		
+		<form class = "grey_block">
+			<h3 class = "api_text">Parameters</h3>
+			<label class ="api_text" for="file_id">'file_id'</label><br>
+			<input class ="api_text" type="text" id="file_id" name="file_id" value=""><br>
+
+			<label class ="api_text" for="ratings">'ratings'</label><br>
+			<input class ="api_text" type="text" id="ratings" name="ratings" value="1"><br>
+		</form>
+
+		<button class="button api_text" type="button" onclick="UserAction('POST',
+		{'file_id': document.getElementById('file_id').value, 'ratings': document.getElementById('ratings').value},
+		'get_reviews','get_review_result')">POST</button>
+
+		<div class ="grey_block">
+		<h3 class ="api_text">Result: </h3>
+		<p  class ="api_text" id="get_review_result"></p>
 		</div>
 	</li>
 </ol>
