@@ -20,7 +20,7 @@ if (response.ok) { // если HTTP-статус в диапазоне 200-299
 //document.getElementById("similar_apps_count_result").innerHTML = await JSON.stringify(response.json());
 response.json().then(json => {document.getElementById(text_id).innerHTML =JSON.stringify(json);});
 } else {
-alert("Ошибка HTTP: " + response.status);
+alert("Error HTTP: " + response.status);
 }
 
 }	
@@ -38,7 +38,7 @@ alert("Ошибка HTTP: " + response.status);
 			<label for="target_id">'target_id'</label><br>
 			<input type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
 		</form>
-		<button type="button" onclick="UserAction('POST',document.getElementById('target_id').value,'similar_apps_count','similar_apps_count_result')">SEND</button>
+		<button class="button" type="button" onclick="UserAction('POST',document.getElementById('target_id').value,'similar_apps_count','similar_apps_count_result')">SEND</button>
 		<p>Result: </p>
 		<p id="similar_apps_count_result"></p>
 	</li>
