@@ -1,13 +1,13 @@
 {% extends "base.html"%}
 {% block content %}
 <script>
-async function UserAction(method,j,api,text_id) {
+async function UserAction(method,data,api,text_id) {
 	const options = {
 		method: method,
 		headers: {
 			'Content-Type':'application/json'
 		},
-		body: "{'target_id':'com.AndreyMelnikov.DRS'}"
+		body:JSON.stringify(data)
 	};
 
     let response = await fetch('http://gen-review.net/api/v1.0/'+api, options);
@@ -39,7 +39,7 @@ alert("Error HTTP: " + response.status);
 			<label class ="api_text" for="target_id">'target_id'</label><br>
 			<input class ="api_text" type="text" id="target_id" name="target_id" value="com.appadvisory.drawclimber"><br>
 		</form>
-		<button class="button api_text" type="button" onclick="UserAction('POST',document.getElementById('target_id').value,'similar_apps_count','similar_apps_count_result')">SEND</button>
+		<button class="button api_text" type="button" onclick="UserAction('POST',{'target_id': document.getElementById('target_id').value},'similar_apps_count','similar_apps_count_result')">SEND</button>
 		<div class ="grey_block">
 		<h3 class ="api_text">Result: </h3>
 		<p  class ="api_text" id="similar_apps_count_result"></p>
