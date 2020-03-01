@@ -33,8 +33,9 @@ if __name__ == "__main__":
 			'lang':'en_US',
 			'reviews_amount': 200,
 			'length': "Short",
-			'file_id':'user2 2020-02-27 22:53:44.456785',
-			'ratings':1}
+			'file_id':'user2 123',
+			'ratings':1,
+			'similar_ids':['com.AndreyMelnikov.DRS','com.Freeride.Freerider']}
 	#print(request_file_id({'user_id': 'user2'}))
 	print(post_id(dict))
 	#print(get_reviews({'file_id':'user2 2020-02-27 22:53:44.456785', 'ratings':"1"}))
