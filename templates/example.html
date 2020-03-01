@@ -10,16 +10,13 @@ async function UserAction(method,data,api,text_id) {
 		body:JSON.stringify(data)
 	};
 
-    let response = await fetch('http://gen-review.net/api/v1.0/'+api, options);
+	let response = await fetch('http://gen-review.net/api/v1.0/'+api, options);
 
-if (response.ok) { // если HTTP-статус в диапазоне 200-299
-// получаем тело ответа (см. про этот метод ниже)
-//document.getElementById("similar_apps_count_result").innerHTML = await JSON.stringify(response.json());
-response.json().then(json => {document.getElementById(text_id).innerHTML =JSON.stringify(json);});
+if (response.ok) {
+	response.json().then(json => {document.getElementById(text_id).innerHTML =JSON.stringify(json);});
 } else {
-alert("Error HTTP: " + response.status);
+	alert("Error HTTP: " + response.status);
 }
-
 }	
 </script>
 
@@ -75,6 +72,10 @@ function openTab(evt, cityName) {
 </script>
 <h1>Example</h1>
 <p class="grey_block">Here you can test an api. <br>Folow each step one by one. <br>If there are missing lines in the parameters, then you need to fill them with the results of api calls from the previous steps.</p>
+
+<iframe width="480" height="270" src="https://youtu.be/sH3utrPFGD8">
+</iframe>
+
 <ol>
 	<li class ="api_ref">
 		<h2 class ="api_text">http://gen-review.net/api/v1.0/similar_apps_count</h2>
