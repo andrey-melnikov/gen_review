@@ -1,6 +1,6 @@
 **EN/RU**
 
-EN:
+###EN:
   **What is it:** gen-review is an API for generating relevant reviews from google play apps.
   **How it works:** Runs of NGINX and python. You enter your game id and press generate button. The tool looks for apps that are similar to yours and parses reviews from it.
   You can filter those reviews by date, length, language and rating.
@@ -9,7 +9,7 @@ EN:
   **Who might need this:** componies that sells fake reviews. If they want to decrease the deletions of their fake reviews in the google play then they need to make their reviews more 'human' and realistic.
   Fake reviews are often like this: "Cool app!" or "Love it! Woow" and so on. With my API you can generate realistic reviews like: "Love this app. Tried it month ago and it was so laggy and annoying but now it pretty good. The image editing is laggyin though".
   This way conpanies can decrease the percentage of deleted reviews by bot detection of Google and improve the quality of their service.
-RU:
+###RU:
   **Что это:** gen-review это API для генерации релевантных отзывов для приложений в Google Play.
   **Как это работает:** работает на NGINX и python. Вы указываете своё приложение, нажимаете кнопку сгенерировать отзывы.
   Программа смотрит приложения, которые похожи на ваше и копирует из них отзывы.
