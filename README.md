@@ -1,4 +1,4 @@
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://img.youtube.com/vi/sH3utrPFGD8/maxresdefault.jpg)](https://youtu.be/sH3utrPFGD8)
 
 **EN/RU**
 <br />
